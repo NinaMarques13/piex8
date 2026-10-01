@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="Conteúdos e recursos gratuitos para fortalecer seu negócio, com acesso simples e sem cadastro.">
+  <title>CapacitaLocal | Conteúdos para o seu negócio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ink: #183a43;
+      --muted: #5e7475;
+      --green: #176b52;
+      --green-dark: #10513e;
+      --mint: #dcefe4;
+      --blue: #dceaf1;
+      --paper: #f7f9f5;
+      --line: #dce5df;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(#c9d9d0 0.7px, transparent 0.7px);
+      background-size: 18px 18px;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+    a { -webkit-tap-highlight-color: transparent; }
+    .page-wrap { background: var(--paper); }
+    .filter-button { transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; }
+    .filter-button[aria-pressed="true"] { color: white; background: var(--green-dark); border-color: var(--green-dark); }
+    .resource-card { animation: appear 360ms ease both; }
+    .resource-card[hidden] { display: none; }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap min-h-screen">
+    <header class="border-b border-[#dce5df]">
+      <div class="mx-auto max-w-6xl px-5 pb-8 pt-5 sm:px-8 sm:pb-12 sm:pt-7">
+        <div class="flex items-center justify-between gap-3">
+          <a href="#inicio" class="flex items-center gap-2.5 font-bold tracking-tight text-[#183a43]" aria-label="CapacitaLocal, início">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#176b52] text-xl text-white" aria-hidden="true">↗</span>
+            <span class="text-lg">CapacitaLocal</span>
+          </a>
+          <div class="flex gap-2" aria-label="Objetivos de Desenvolvimento Sustentável">
+            <span class="rounded-md border border-[#d6e3d8] bg-white/80 px-2.5 py-1.5 text-[11px] font-bold text-[#176b52]">ODS 4</span>
+            <span class="rounded-md border border-[#d6e3d8] bg-white/80 px-2.5 py-1.5 text-[11px] font-bold text-[#176b52]">ODS 8</span>
+          </div>
+        </div>
+
+        <div id="inicio" class="mt-10 max-w-3xl sm:mt-14">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[#176b52]">Aprender, organizar, crescer</p>
+          <h1 class="text-4xl font-bold leading-[1.06] tracking-tight text-[#183a43] sm:text-6xl">CapacitaLocal</h1>
+          <p class="mt-4 max-w-2xl text-lg leading-7 text-[#5e7475] sm:text-xl">Sua Central de Conteúdos e Recursos Gratuitos para o Seu Negócio</p>
+          <p class="mt-3 max-w-xl text-sm leading-6 text-[#5e7475]">Materiais diretos para quem empreende, vende e faz acontecer. Acesse sem cadastro e no seu ritmo.</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 sm:px-8">
+      <section class="py-8 sm:py-10" aria-labelledby="materiais-titulo">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#176b52]">Biblioteca prática</p>
+            <h2 id="materiais-titulo" class="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">O que você precisa hoje?</h2>
+          </div>
+          <p class="text-sm text-[#5e7475]"><span id="result-count">6</span> recursos gratuitos</p>
+        </div>
+
+        <nav class="mt-5 flex gap-2 overflow-x-auto pb-2" aria-label="Filtrar conteúdos por categoria">
+          <button class="filter-button shrink-0 rounded-full border border-[#c8d8cf] bg-white px-4 py-2.5 text-sm font-semibold text-[#36565a]" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-button shrink-0 rounded-full border border-[#c8d8cf] bg-white px-4 py-2.5 text-sm font-semibold text-[#36565a]" type="button" data-filter="financas" aria-pressed="false">💰 Finanças &amp; Pix</button>
+          <button class="filter-button shrink-0 rounded-full border border-[#c8d8cf] bg-white px-4 py-2.5 text-sm font-semibold text-[#36565a]" type="button" data-filter="divulgacao" aria-pressed="false">📱 WhatsApp &amp; Divulgação</button>
+          <button class="filter-button shrink-0 rounded-full border border-[#c8d8cf] bg-white px-4 py-2.5 text-sm font-semibold text-[#36565a]" type="button" data-filter="gestao" aria-pressed="false">📦 Gestão &amp; Ferramentas</button>
+        </nav>
+
+        <div id="resource-grid" class="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="financas">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#e7f2e9] text-xl" aria-hidden="true">🔐</span>
+              <span class="rounded-full bg-[#eef5ee] px-2.5 py-1 text-xs font-semibold text-[#176b52]">Finanças &amp; Pix</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Como Usar o Pix com Segurança</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Aprenda a reconhecer golpes e proteger suas transações com orientações práticas.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://www.bcb.gov.br/estabilidadefinanceira/pix" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="financas">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#e7f2e9] text-xl" aria-hidden="true">🧾</span>
+              <span class="rounded-full bg-[#eef5ee] px-2.5 py-1 text-xs font-semibold text-[#176b52]">Finanças &amp; Pix</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Planilha e Controle Financeiro Simples</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Organize entradas, despesas e lucro para enxergar melhor a saúde do seu negócio.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://sebrae.com.br/sites/PortalSebrae/ufs/sp/sebraeaz/gestao-financeira" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="divulgacao">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#e5eff5] text-xl" aria-hidden="true">💬</span>
+              <span class="rounded-full bg-[#edf4f7] px-2.5 py-1 text-xs font-semibold text-[#315c70]">WhatsApp &amp; Divulgação</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Criando seu Catálogo no WhatsApp Business</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Monte uma vitrine digital com fotos, preços e informações dos seus produtos.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://business.whatsapp.com/" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="divulgacao">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#e5eff5] text-xl" aria-hidden="true">📸</span>
+              <span class="rounded-full bg-[#edf4f7] px-2.5 py-1 text-xs font-semibold text-[#315c70]">WhatsApp &amp; Divulgação</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Dicas para Tirar Boas Fotos de Produtos pelo Celular</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Use luz, enquadramento e pequenos ajustes para valorizar o que você vende.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://sebrae.com.br/" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="gestao">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#f2eee0] text-xl" aria-hidden="true">📝</span>
+              <span class="rounded-full bg-[#f5f2e8] px-2.5 py-1 text-xs font-semibold text-[#6e5b24]">Gestão &amp; Ferramentas</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Gerador e Modelo Pronto de Recibo Comercial</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Registre pagamentos com um modelo simples para preencher e guardar.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://sebrae.com.br/" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="resource-card flex min-h-[260px] flex-col rounded-xl border border-[#dce5df] bg-white p-5 sm:p-6" data-category="gestao">
+            <div class="flex items-start justify-between gap-3">
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#f2eee0] text-xl" aria-hidden="true">🎓</span>
+              <span class="rounded-full bg-[#f5f2e8] px-2.5 py-1 text-xs font-semibold text-[#6e5b24]">Gestão &amp; Ferramentas</span>
+            </div>
+            <h3 class="mt-5 text-lg font-bold leading-snug">Cursos Livres Gratuitos do SEBRAE/IFs</h3>
+            <p class="mt-2 flex-1 text-sm leading-6 text-[#5e7475]">Encontre cursos gratuitos para desenvolver novas habilidades para o trabalho.</p>
+            <a class="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#176b52] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#10513e] focus:outline-none focus:ring-2 focus:ring-[#176b52] focus:ring-offset-2" href="https://sebrae.com.br/sites/PortalSebrae/cursosonline" target="_blank" rel="noopener noreferrer">Acessar Material <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p id="empty-state" class="mt-8 hidden text-center text-sm text-[#5e7475]" role="status">Nenhum conteúdo encontrado nesta categoria.</p>
+      </section>
+
+      <section id="feedback" class="mb-10 overflow-hidden rounded-2xl bg-[#183a43] text-white sm:mb-14" aria-labelledby="feedback-titulo">
+        <div class="grid gap-6 px-6 py-8 sm:grid-cols-[1fr_auto] sm:items-center sm:px-10 sm:py-10">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#a8d8b9]">Construído com a comunidade</p>
+            <h2 id="feedback-titulo" class="mt-2 max-w-xl text-2xl font-bold leading-tight sm:text-3xl">Sua opinião é fundamental para a nossa faculdade!</h2>
+            <p class="mt-2 max-w-xl text-sm leading-6 text-[#d2e2df]">Ajude a melhorar este portal compartilhando sua experiência.</p>
+          </div>
+          <a class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#c4ed90] px-5 py-3 text-center text-sm font-bold text-[#183a43] transition hover:bg-[#d4f5a9] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#183a43]" href="https://forms.gle/" target="_blank" rel="noopener noreferrer">Avalie este Portal / Deixe seu Feedback <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[#dce5df] bg-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-[#5e7475] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p class="font-semibold text-[#36565a]">Projeto de Extensão Universitária</p>
+        <p>Alinhado aos ODS 4 e 8 da ONU</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const resourceCards = document.querySelectorAll(".resource-card");
+    const resultCount = document.querySelector("#result-count");
+    const emptyState = document.querySelector("#empty-state");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedCategory = button.dataset.filter;
+        let visibleCount = 0;
+
+        filterButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+
+        resourceCards.forEach((card) => {
+          const isVisible = selectedCategory === "all" || card.dataset.category === selectedCategory;
+          card.hidden = !isVisible;
+          if (isVisible) visibleCount += 1;
+        });
+
+        resultCount.textContent = String(visibleCount);
+        emptyState.classList.toggle("hidden", visibleCount !== 0);
+      });
+    });
+  </script>
+</body>
+</html>
