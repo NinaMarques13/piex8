@@ -45,19 +45,41 @@ O **CapacitaLocal** atua como um **Hub/Portal Web centralizador e intuitivo**, a
 ## 🛠️️ Tecnologias Utilizadas
 
 - **Frontend:** HTML5 Semântico, Tailwind CSS / Bootstrap (*Mobile-first*)
-- **Coleta de Métricas & Diagnóstico:** Google Forms & Google Sheets API
-- **Hospedagem:** Vercel / GitHub Pages / Render
+- **Coleta de Métricas & Diagnóstico:** Google Forms & Google Sheets
+- **Hospedagem:** GitHub Pages via GitHub Actions
 - **Design & Prototipação:** Figma
+
+### Atualização do catálogo público
+
+O portal é estático e aberto. O catálogo publicado fica em `src/resources.json` e pode ser atualizado a partir de uma planilha `.xlsx`:
+
+```bash
+python3 scripts/import_resources.py "PIEX 7.xlsx"
+```
+
+O importador usa nome, área, plataforma, categoria, formato, carga horária e link de acesso. As colunas de conclusão e notas não são publicadas. Os conteúdos são organizados em negócios, carreiras e crescimento pessoal; registros sem link válido continuam visíveis, mas sem botão de acesso.
+
+Essa importação gera uma cópia estática: alterações futuras na planilha só aparecem no portal depois de executar o comando novamente e publicar o `resources.json` atualizado. Para testar localmente, sirva a pasta `src` por HTTP (por exemplo, `python3 -m http.server 8000 --directory src`).
+
+### Deploy no GitHub Pages
+
+1. No repositório, acesse **Settings → Pages** e selecione **GitHub Actions** como origem do deploy.
+2. Envie as alterações para a branch `main` ou execute manualmente o workflow **Deploy portal to GitHub Pages** na aba **Actions**.
+3. O workflow valida o catálogo e publica somente a pasta `src/`. O arquivo Excel de origem não faz parte do site publicado.
+
+Após o primeiro deploy, o portal ficará disponível em `https://ninamarques13.github.io/piex8/`.
 
 ---
 
 ## 📂 Estrutura do Repositório
 
 ```bash
-├── docs/             # Documentação acadêmica e relatórios de extensão
-├── src/              # Código-fonte da aplicação Web (Hub)
-│   ├── assets/       # Imagens, ícones e arquivos estáticos
-│   ├── css/          # Estilização responsiva
-│   ├── js/           # Scripts de navegação e filtros
-│   └── index.html    # Página principal do Portal
-└── README.md         # Documentação técnica do projeto
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml
+├── scripts/
+│   └── import_resources.py
+├── src/
+│   ├── index.html
+│   └── resources.json
+└── README.md
